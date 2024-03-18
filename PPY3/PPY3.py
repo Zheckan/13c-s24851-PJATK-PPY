@@ -36,3 +36,14 @@ except:
 # 6 
 squa = sq.SquareGenerator(1,10).squares()
 print(squa)
+
+# 8
+class CubicGenerator(SquareGenerator):
+    def __init__(self, start, end):
+        super().__init__(start, end)
+    
+    def cubes(self):
+        return [i**3 for i in range(self.start, self.end+1)]
+    
+test = CubicGenerator(1,10).cubes()
+print(test)
