@@ -45,5 +45,4 @@ class CubicGenerator(SquareGenerator):
     def cubes(self):
         return [i**3 for i in range(self.start, self.end+1)]
     
-test = CubicGenerator(1,10).cubes()
-print(test)
+print(CubicGenerator(1,10).cubes())
