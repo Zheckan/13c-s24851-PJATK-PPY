@@ -23,5 +23,11 @@ print(squares)
 
 # 4
 squares = [int(math.sqrt(square)) for square in squares]
-
 print(squares)
+
+# 5 
+try: 
+    squaresGenerator = SquareGenerator(10,1).squares()
+    print(squaresGenerator)
+except: 
+    print("Some error occurred")
