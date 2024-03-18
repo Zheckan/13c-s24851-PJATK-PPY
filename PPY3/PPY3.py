@@ -1,3 +1,5 @@
+import math
+
 # 1 
 squares = [x ** 2 for x in range(1, 10)]
 print(squares)
@@ -16,5 +18,10 @@ class SquareGenerator:
 
     def squares(self):
         return [i**2 for i in range(self.start, self.end+1)]
+squares = SquareGenerator(1,10).squares()
+print(squares)
 
-print(SquareGenerator(1,10).squares())
+# 4
+squares = [int(math.sqrt(square)) for square in squares]
+
+print(squares)
