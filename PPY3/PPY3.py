@@ -1,4 +1,5 @@
 import math
+import square_generator as sq
 
 # 1 
 squares = [x ** 2 for x in range(1, 10)]
@@ -31,3 +32,7 @@ try:
     print(squaresGenerator)
 except: 
     print("Some error occurred")
+
+# 6 
+squa = sq.SquareGenerator(1,10).squares()
+print(squa)
