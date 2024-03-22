@@ -34,8 +34,11 @@ except:
     print("Some error occurred")
 
 # 6 
-squa = sq.SquareGenerator(1,10).squares()
-print(squa)
+square = sq.SquareGenerator(1,10).squares()
+print(square)
+
+# 7
+# Done 
 
 # 8
 class CubicGenerator(SquareGenerator):
@@ -46,3 +49,32 @@ class CubicGenerator(SquareGenerator):
         return [i**3 for i in range(self.start, self.end+1)]
     
 print(CubicGenerator(1,10).cubes())
+
+# 9
+class CubicGenerator(SquareGenerator):
+    def generate_squares(self):
+        if self.start > self.end:
+            raise ValueError("Start of range must be less than end.")
+        return [i ** 3 for i in range(self.start, self.end + 1)]
+
+print(CubicGenerator(1,10).generate_squares())
+
+# 10
+from abc import ABC, abstractmethod
+
+class SquareGenerator(ABC):
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end
+
+    @abstractmethod
+    def generate_squares(self):
+        pass
+
+class CubicGenerator(SquareGenerator):
+    def generate_squares(self):
+        if self.start > self.end:
+            raise ValueError("Start of range must be less than end.")
+        return [i ** 3 for i in range(self.start, self.end + 1)]
+
+print(CubicGenerator(1,10).generate_squares())
