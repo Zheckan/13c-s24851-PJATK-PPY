@@ -20,27 +20,21 @@ def is_valid_move(row, col):
     return 0 <= row < grid_size and 0 <= col < grid_size and board[row][col] == ' '
 
 def check_winner():
-    winning_length = 3  # Number of consecutive marks needed to win
+    winning_length = 3  
 
-    # Check horizontal and vertical lines
     for i in range(grid_size):
         for j in range(grid_size - winning_length + 1):
-            # Check row
             if len(set(board[i][j:j + winning_length])) == 1 and board[i][j] != ' ':
                 return board[i][j]
-            # Check column
             column = [board[x][i] for x in range(j, j + winning_length)]
             if len(set(column)) == 1 and column[0] != ' ':
                 return column[0]
 
-    # Check diagonal and anti-diagonal
     for i in range(grid_size - winning_length + 1):
         for j in range(grid_size - winning_length + 1):
-            # Check main diagonal
             diagonal = [board[i + k][j + k] for k in range(winning_length)]
             if len(set(diagonal)) == 1 and diagonal[0] != ' ':
                 return diagonal[0]
-            # Check anti-diagonal
             anti_diagonal = [board[i + k][j + winning_length - k - 1] for k in range(winning_length)]
             if len(set(anti_diagonal)) == 1 and anti_diagonal[0] != ' ':
                 return anti_diagonal[0]
