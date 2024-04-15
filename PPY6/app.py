@@ -4,6 +4,7 @@ import json
 with open('PPY6\game-init.json', 'r') as file:
     settings = json.load(file)
 
+# Game settings
 num_players = settings['num_players']
 player_names = settings['player_names']
 grid_size = settings['grid_size']
@@ -12,13 +13,16 @@ player_symbols = settings['player_symbols']
 # Initialize the board
 board = [[' ' for _ in range(grid_size)] for _ in range(grid_size)]
 
+# Draw a board
 def print_board():
     for row in board:
         print('|' + '|'.join(row) + '|')
 
+# Validator for move
 def is_valid_move(row, col):
     return 0 <= row < grid_size and 0 <= col < grid_size and board[row][col] == ' '
 
+# Winner checking 
 def check_winner():
     winning_length = 3  
 
@@ -42,13 +46,12 @@ def check_winner():
     return None
 
 
-
 def main():
     current_player_index = 0
     while True:
         print_board()
-        row = int(input(f'{player_names[current_player_index]} choose your row (0-{grid_size-1}): '))
-        col = int(input(f'{player_names[current_player_index]} choose your column (0-{grid_size-1}): '))
+        row = int(input(f'{player_names[current_player_index]} choose your row (1-{grid_size}): '))-1
+        col = int(input(f'{player_names[current_player_index]} choose your column (1-{grid_size}): '))-1
 
         if not is_valid_move(row, col):
             print("Invalid move. Try again.")
