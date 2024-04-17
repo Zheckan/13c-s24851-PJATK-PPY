@@ -1,7 +1,7 @@
 import json
 
 # Load game settings
-with open('PPY6\game-init.json', 'r') as file:
+with open('game-init.json', 'r') as file:
     settings = json.load(file)
 
 # Game settings
